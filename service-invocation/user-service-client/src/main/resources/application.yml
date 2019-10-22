@@ -1,0 +1,32 @@
+# 服务端口
+server:
+  port: 8080
+
+# 定义 user-service-provider Ribbon 的服务器地址
+# 为 RibbonLoadBalancerClient 提供服务列表
+# 扩展IPing 实现
+user-service-provider:
+  ribbon:
+    NFLoadBalancerPingClassName: com.springcloud.service.client.ping.ClientPing
+
+## 提供方服务名称
+## 提供方服务主机
+## 提供方服务端口
+#provider:
+#  service:
+#    name: user-service-provider
+#    host: localhost
+#    port: 9090
+## 配置 @FeignClient(name = "${user.service.name}") 中的占位符
+## user.service.name 实际需要制定 UserService 接口的提供方
+## 也就是 user-service-provider，可以使用 ${provider.service.name} 替代
+#user:
+#  service:
+#    name: ${provider.service.name}
+
+# 服务管理员信息
+info:
+  作者: AbelEthan
+  邮件: abelethan@126.com
+  github: github.com/abelethan
+  马云: gitee.com/abelethan

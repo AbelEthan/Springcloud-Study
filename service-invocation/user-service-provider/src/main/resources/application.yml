@@ -1,0 +1,22 @@
+# 用户服务提供方应用信息
+spring:
+  application:
+    name: user-service-provider
+
+# 服务端口
+server:
+  port: 9090
+
+# 激活 Eureka Client，显示地通过配置方式注册 Ribbon 服务地址
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+# 服务管理员信息
+info:
+  作者: AbelEthan
+  邮件: abelethan@126.com
+  github: github.com/abelethan
+  马云: gitee.com/abelethan

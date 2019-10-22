@@ -1,0 +1,38 @@
+# 服务提供方
+spring:
+  application:
+    name: spring-cloud-ribbon-client
+
+# 服务端口
+server:
+  port: 8080
+
+# 管理安全实效
+management:
+  security:
+    enabled: false
+
+## 暂时性关闭 Eureka 注册
+#eureka:
+#  client:
+#    enabled: false
+
+# 连接 Eureka Sever
+eureka:
+  client:
+    serviceUrl:
+      registry-fetch-interval-seconds: 5     # 调整获取所有应用元信息间隔时间
+      instance-info-replication-interval-seconds: 5      # 调整应用元信息间隔时间
+      defaultZone: http://localhost:10000/eureka/
+
+
+service-provider:
+  name: spring-cloud-service-provider
+  host: localhost     # 服务提供方主机
+  port: 9090          # 服务提供方端口
+
+# 配置ribbon 服务地提供方
+# 当使用 Eureka 服务发现时，请注释掉一下配置
+#spring-cloud-service-provider:
+#  ribbon:
+#    listOfServers: http://${service-provider.host}:${service-provider.port}

@@ -1,0 +1,15 @@
+# 定义 应用名称
+spring:
+  application:
+    name: spring-cloud-eureka-server
+
+# 管理端安全失效
+management:
+  security:
+    enabled: false
+
+## 公用 Eureka 配置
+eureka:
+  client:
+    register-with-eureka: true     # 向注册中心注册
+    fetch-registry: true           # 向获取注册信息（服务、实例信息）

@@ -1,0 +1,23 @@
+# 应用名称
+spring:
+  application:
+    name: spring-cloud-eureka-client
+
+# 客户端 端口随即可用
+server:
+  port: 8080
+
+# 管理端安全失效
+management:
+  security:
+    enabled: false
+
+# 配置连接 Eureka 服务器
+# 配置多个 Eureka 注册中心，以"," 分割
+eureka:
+  client:
+    serviceUrl:
+      registry-fetch-interval-seconds: 5     # 调整获取所有应用元信息间隔时间
+      instance-info-replication-interval-seconds: 5      # 调整应用元信息间隔时间
+      defaultZone:
+        http://localhost:9090/eureka,http://localhost:9091/eureka

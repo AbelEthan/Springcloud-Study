@@ -1,0 +1,25 @@
+# 用户 Ribbon 客户端应用
+spring:
+  application:
+    name: user-service-client
+  cloud:
+    # 配置客户端应用关联的应用
+    # spring.cloud.config.name 是可选的
+    # 如果没有配置，采用 ${spring.application.name}
+    # 关联 profile
+    # 关联 label
+    # 激活 Config Server 服务发现
+    # Config Server 服务器应用名称
+    config:
+      name: user-service
+      profile: default
+      label: master
+      discovery:
+        enabled: true
+        serviceId: spring-cloud-config-server
+
+# Spring Cloud Eureka 客户端 注册到 Eureka 服务器
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

@@ -1,0 +1,20 @@
+# 应用名称
+spring:
+  application:
+    name: spring-cloud-consul
+  # 连接 consul 服务器的配置
+  cloud:
+    consul:
+      host: 127.0.0.1   # consul 主机地址
+      port: 8500      # consul 服务端口
+      discovery:
+        health-check-path: /check           # 调整 Health Check 路劲， 使其传递到 Consul 服务器， 帮助回调
+
+# 服务端口
+server:
+  port: 8080
+
+# 管理安全失效
+management:
+  security:
+    enabled: false

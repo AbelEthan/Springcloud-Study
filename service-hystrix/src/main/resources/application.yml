@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: hystrix-source-code
+  cloud:
+    circuit:
+      breaker:
+        enabled: true   #  Circuit Breaker 开关（默认值：true）
+
+# 关闭 Endpoint 安全
+management:
+  security:
+    enabled: false
+
+# Hystrix Stream Endpoint 开关（默认值：true）
+hystrix:
+  stream:
+    endpoint:
+      enabled: true

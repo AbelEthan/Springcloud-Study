@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      ## spring.cloud.config.name 是可选的
+      ## 如果没有配置，采用 ${spring.application.name}
+      name: neo-config    # 配置客户端应用关联的应用
+      profile: pro      # 关联 profile
+      label: master      # 关联 label
+      uri: http://127.0.0.1:8080/     # 配置应用服务器URI

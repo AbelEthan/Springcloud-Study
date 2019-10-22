@@ -1,0 +1,29 @@
+# 配置服务器应用名称
+spring:
+  application:
+    name: spring-cloud-config-server
+  # 配置服务器文件系统git 仓库
+  # ${user.dir} 减少平台文件系统的不一致
+  cloud:
+    config:
+      server:
+        git:
+          force-pull: true      # 强制拉去 Git 内容
+          uri: https://github.com/AbelEthan/spring-cloud-config-repo/       # 配置服务器远程 Git 仓库（GitHub）
+          # uri: ${user.dir}/src/main/resources/configs
+# 配置服务器端口
+server:
+  port: 7070
+
+# 关闭管理端actuator 的安全
+# /env /health 端口完全开放
+management:
+  security:
+    enabled: false
+
+# spring-cloud-config-server 注册到 Eureka 服务器
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9090/eureka/
+

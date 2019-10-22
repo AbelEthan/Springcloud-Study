@@ -1,0 +1,21 @@
+# 配置服务器应用名称
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+#          uri: ${user.dir}/config/src/main/resources/configs     # ${user.dir} 减少平台文件系统的不一致
+          force-pull: true    # 强制拉去 Git 内容
+          uri: https://github.com/AbelEthan/spring-cloud-config-repo/    # 配置服务器远程 Git 仓库（GitHub）
+
+
+# 配置服务器端口
+server:
+  port: 8080
+# 关闭管理端actuator 的安全
+# /env /health 端口完全开放
+management:
+  security:
+    enabled: false

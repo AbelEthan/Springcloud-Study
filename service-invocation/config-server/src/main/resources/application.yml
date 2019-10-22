@@ -1,0 +1,27 @@
+# Spring Cloud Config Server 应用名称
+spring:
+  application:
+    name: spring-cloud-config-server
+  ## 配置服务器文件系统git 仓库
+  ## ${user.dir} 减少平台文件系统的不一致
+  ## 目前 ${user.dir}/config-server/src/main/resources/conf-repo
+  cloud:
+    config:
+      server:
+        git:
+          uri: ${user.dir}\config-server\src\main\resources\conf-repo
+
+# 服务器服务端口
+server:
+  port: 7070
+
+# 管理端口安全失效
+management:
+  security:
+    enabled: false
+
+## Spring Cloud Eureka 客户端 注册到 Eureka 服务器
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
